@@ -1,29 +1,26 @@
 Summary:	H.323 gatekeeper and proxy
 Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
 Name:		openh323proxy
-Version:	0.9.13
+Version:	0.9.11
 Release:	1
 Epoch:		1
-License:	MPL 1.0
+License:	MPL
 Group:		Applications/Communications
-Source0:	http://dl.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
 Source1:	%{name}.ini
 Source2:	%{name}.init
 Source3:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-config_file_path.patch
-Patch2:		%{name}-c++.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
-BuildRequires:	openh323-devel >= 1.10.0
-BuildRequires:	openssl-devel >= 0.9.7
-PreReq:		rc-scripts
-Requires(post,preun):	/sbin/chkconfig
-%requires_eq	openh323
+BuildRequires:	openh323-devel
+BuildRequires:	openssl-devel
+Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
-H.323 is widely used Internet teleconferencing protocol. Openh323proxy
+H.323 is widly used internet teleconferencing protocol. Openh323proxy
 acts as H.323 gatekeeper and proxy. A H.323 gatekeeper controls all
 H.323 clients (endpoints like MS Netmeeting) in his zone. Its most
 important function is address translation between symbolic alias
@@ -43,7 +40,6 @@ proxy pakiet ten umo¿liwia po³±czenia H.323 pomiêdzy sieci± wewnêtrzn±
 %setup -qn %{name}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 PWLIBDIR=%{_prefix}; export PWLIBDIR
@@ -82,7 +78,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.txt
+%doc *.txt *.htm
 %attr(755,root,root) %{_sbindir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/openh323proxy.ini
 %attr(754,root,root) /etc/rc.d/init.d/openh323proxy
