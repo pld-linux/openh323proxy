@@ -17,7 +17,7 @@ Patch2:		%{name}-c++.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
 BuildRequires:	openh323-devel >= 1.10.0
-BuildRequires:	openssl-devel >= 0.9.6i
+BuildRequires:	openssl-devel >= 0.9.6m
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
