@@ -6,7 +6,7 @@ Release:	1
 Epoch:		1
 License:	MPL
 Group:		Applications/Communications
-Source0:	http://prdownloads.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
 Source1:	%{name}.ini
 Source2:	%{name}.init
 Source3:	%{name}.sysconfig
@@ -16,9 +16,10 @@ URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
 BuildRequires:	openh323-devel >= 1.10.0
 BuildRequires:	openssl-devel >= 0.9.7
-Prereq:		/sbin/chkconfig
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 %requires_eq	openh323
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
 H.323 is widly used internet teleconferencing protocol. Openh323proxy
