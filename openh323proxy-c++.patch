@@ -1,0 +1,42 @@
+--- openh323proxy/EndpointTabl.h.orig	2002-11-28 11:44:53.000000000 +0100
++++ openh323proxy/EndpointTabl.h	2003-04-19 17:34:26.000000000 +0200
+@@ -330,6 +330,7 @@
+ 			                   const string&                 Descript
+ 			                 ): runtime_error(Descript), Reason(AkaReason) {}
+ 			H225_RegistrationRejectReason Reason;
++			~RegistrationError() throw() {}
+ 		};
+ 
+ 		void Insert( Endpoint &                     EP,
+--- openh323proxy/EndpointTabl.cxx.orig	2002-11-28 11:44:53.000000000 +0100
++++ openh323proxy/EndpointTabl.cxx	2003-04-19 18:31:22.000000000 +0200
+@@ -715,7 +715,7 @@
+ 	// (because the counter can wrap round)
+ 	do
+ 	{
+-		((PASN_BMPString &)Result) = PString(PString::Unsigned, Id) + ": " + (PString)GatekeeperId;
++		((PASN_BMPString &)Result) = PString(PString::Unsigned, Id) + ": " + PString((const PWORDArray)GatekeeperId);
+ 		++Id;
+ 	} while ( find_if(Table.begin(),Table.end(),hasEndpointId(Result)) != Table.end() );
+ 
+--- openh323proxy/Log.h.orig	2002-11-28 11:44:54.000000000 +0100
++++ openh323proxy/Log.h	2003-04-19 18:38:31.000000000 +0200
+@@ -43,6 +43,7 @@
+ 
+ #include <ptlib.h>
+ #include <ptlib/contain.h>
++#include <ptlib/ipsock.h>
+ #include <h225.h>
+ #include <q931.h>
+ #include <h245.h>
+--- openh323proxy/Environ.cxx.orig	2002-11-28 11:44:53.000000000 +0100
++++ openh323proxy/Environ.cxx	2003-04-19 18:51:17.000000000 +0200
+@@ -132,7 +132,7 @@
+     {
+         PIPSocket::Address KeyAddr;
+         PIPSocket::GetHostAddress( Keys[i], KeyAddr );
+-        if ( Addr == KeyAddr )
++        if ( KeyAddr.operator==(Addr) )
+         {
+             // This key refers to this address...
+             Result.SetSize(j+1);

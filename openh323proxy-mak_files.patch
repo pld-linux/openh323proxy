@@ -1,12 +1,10 @@
-diff -durN openh323proxy.orig/Makefile openh323proxy/Makefile
---- openh323proxy.orig/Makefile	Thu Jan 11 12:38:48 2001
-+++ openh323proxy/Makefile	Wed Feb 28 10:29:40 2001
-@@ -86,13 +86,13 @@
+--- openh323proxy/Makefile.orig	2002-11-28 11:44:54.000000000 +0100
++++ openh323proxy/Makefile	2003-04-19 17:18:55.000000000 +0200
+@@ -103,13 +103,12 @@
  PWLIBDIR=$(HOME)/pwlib
  endif
  
 -include $(PWLIBDIR)/make/ptlib.mak
-+include $(PWLIBDIR)/share/pwlib/ptlib.mak
  
  ifndef OPENH323DIR
  OPENH323DIR=$(HOME)/openh323

@@ -1,12 +1,11 @@
-diff -durN openh323proxy.orig/opengate.cxx openh323proxy/opengate.cxx
---- openh323proxy.orig/opengate.cxx	Thu Jan 11 12:38:48 2001
-+++ openh323proxy/opengate.cxx	Wed Feb 28 10:58:24 2001
-@@ -159,7 +159,7 @@
+--- openh323proxy/opengate.cxx.orig	2002-11-28 11:44:54.000000000 +0100
++++ openh323proxy/opengate.cxx	2003-04-19 17:21:27.000000000 +0200
+@@ -178,7 +178,7 @@
  	// Try and read settings from the configuration file, if they are not
  	// there using sensible default
  
 -	PConfig Cfg("System");	
-+	PConfig Cfg("/etc/opengate_proxy.ini","System");	
++	PConfig Cfg("/etc/opengate_proxy.init", "System");
  
  	// Set the local address to bind to, this should be useful in multi-homed environments
  	PString AkaLocalAddr = Cfg.GetString( "Local Address", "*" );
