@@ -1,0 +1,19 @@
+diff -durN openh323proxy.orig/Makefile openh323proxy/Makefile
+--- openh323proxy.orig/Makefile	Thu Jan 11 12:38:48 2001
++++ openh323proxy/Makefile	Wed Feb 28 10:29:40 2001
+@@ -86,13 +86,13 @@
+ PWLIBDIR=$(HOME)/pwlib
+ endif
+ 
+-include $(PWLIBDIR)/make/ptlib.mak
++include $(PWLIBDIR)/share/pwlib/ptlib.mak
+ 
+ ifndef OPENH323DIR
+ OPENH323DIR=$(HOME)/openh323
+ endif
+ 
+-include $(OPENH323DIR)/openh323u.mak
++include $(OPENH323DIR)/share/misc/openh323u.mak
+ 
+ ifndef OPENGATEDIR
+ OPENGATEDIR=$(OPENH323DIR)/opengate

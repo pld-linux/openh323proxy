@@ -1,0 +1,4 @@
+# Customized setings for openh323proxy
+
+# Define nice level for openh323proxy
+SERVICE_RUN_NICE_LEVEL="+5"
