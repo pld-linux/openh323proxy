@@ -25,7 +25,7 @@ important function is address translation between symbolic alias
 addresses and IP addresses. This way you can call "jan" instead of
 knowing which IP address he currently works on.
 
-%description
+%description -l pl
 H.323 to popularny internetowy protokó³ telekonferencyjny, u¿ywany
 miêdzy innymi przez program NetMeeting. Openh323proxy s³u¿y jako
 gatekeeper oraz Proxy dla tego protoko³u. Gatekeeper obs³uguje
