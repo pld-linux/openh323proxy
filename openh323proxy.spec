@@ -49,7 +49,7 @@ OPENGATEDIR=`pwd`; export OPENH323DIR
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_sysconfdir}{/rc.d/init.d,/sysconfig}}
+install -d $RPM_BUILD_ROOT{%{_sbindir},/etc/{/rc.d/init.d,/sysconfig}}
 
 install obj_*/opengate_proxy $RPM_BUILD_ROOT%{_sbindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
