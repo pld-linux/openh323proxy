@@ -5,8 +5,6 @@ Version:	0.9a3_m09
 Release:	2
 License:	MPL
 Group:		Applications/Communications
-Group(de):	Applikationen/Kommunikation
-Group(pl):	Aplikacje/Komunikacja
 Source0:	http://download.sourceforge.net/%{name}/%{name}_%{version}.tar.gz
 Source1:	%{name}.ini
 Source2:	%{name}.init
