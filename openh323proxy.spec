@@ -2,7 +2,7 @@ Summary:	H.323 gatekeeper and proxy
 Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
 Name:		openh323proxy
 Version:	0.9a3_m09
-Release:	1
+Release:	2
 License:	MPL
 Group:		Applications/Communications
 Group(de):	Applikationen/Kommunikation
@@ -16,6 +16,7 @@ Patch1:		%{name}-config_file_path.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	openh323-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Prereq:		/sbin/chkconfig
 
 %description 
 H.323 is widly used internet teleconferencing protocol. Openh323proxy
@@ -55,6 +56,9 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/openh323proxy
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/openh323proxy
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 /sbin/chkconfig --add openh323proxy
 if [ -r /var/lock/subsys/openh323proxy ]; then
@@ -70,9 +74,6 @@ if [ "$1" = "0" ]; then
 	fi
 	/sbin/chkconfig --del openh323proxy
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
