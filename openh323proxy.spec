@@ -13,7 +13,9 @@ Source3:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-config_file_path.patch
 URL:		http://openh323proxy.sourceforge.net/
+BuildRequires:	expat-devel
 BuildRequires:	openh323-devel
+BuildRequires:	openssl-devel
 Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
