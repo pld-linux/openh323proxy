@@ -56,10 +56,20 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/openh323proxy
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/openh323proxy
 
 %post
-DESC="OpenH323 gatekeeper"; %chkconfig_add
+/sbin/chkconfig --add openh323proxy
+if [ -r /var/lock/subsys/openh323proxy ]; then
+	/etc/rc.d/init.d/openh323proxy restart >&2
+else
+	echo "Run \"/etc/rc.d/init.d/openh323proxy start\" to start OpenH323 gatekeeper."
+fi
 
 %preun
-%chkconfig_del
+if [ "$1" = "0" ]; then
+	if [ -r /var/lock/subsys/openh323proxy ]; then
+		/etc/rc.d/init.d/openh323proxy stop >&2
+	fi
+	/sbin/chkconfig --del openh323proxy
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
