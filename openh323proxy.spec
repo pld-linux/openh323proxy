@@ -2,7 +2,7 @@ Summary:	H.323 gatekeeper and proxy
 Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
 Name:		openh323proxy
 Version:	0.9.13
-Release:	1
+Release:	2
 Epoch:		1
 License:	MPL 1.0
 Group:		Applications/Communications
@@ -16,7 +16,7 @@ Patch1:		%{name}-config_file_path.patch
 Patch2:		%{name}-c++.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
-BuildRequires:	openh323-devel >= 1.10.0
+BuildRequires:	openh323-devel >= 1.12.0
 BuildRequires:	openssl-devel >= 0.9.7
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
@@ -47,9 +47,6 @@ proxy pakiet ten umo¿liwia po³±czenia H.323 pomiêdzy sieci± wewnêtrzn±
 %patch2 -p1
 
 %build
-PWLIBDIR=%{_prefix}; export PWLIBDIR
-OPENH323DIR=%{_prefix}; export OPENH323DIR
-OPENGATEDIR=`pwd`; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
 	OPTCCFLAGS="%{rpmcflags}"
 
