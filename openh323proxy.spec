@@ -7,6 +7,7 @@ Epoch:		1
 License:	MPL 1.0
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
+# Source0-md5:	f25116bd22a0f648222f50cff3a5dd50
 Source1:	%{name}.ini
 Source2:	%{name}.init
 Source3:	%{name}.sysconfig
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 if [ -r /var/lock/subsys/openh323proxy ]; then
 	/etc/rc.d/init.d/openh323proxy restart >&2
 else
-	echo "Run \"/etc/rc.d/init.d/openh323proxy start\" to start OpenH323 gatekeeper."
+	echo "Run \"/etc/rc.d/init.d/openh323proxy start\" to start OpenH323 Proxy."
 fi
 
 %preun
