@@ -15,7 +15,7 @@ Patch1:		%{name}-config_file_path.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
 BuildRequires:	openh323-devel >= 1.10.0
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.7
 Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %requires_eq	openh323
