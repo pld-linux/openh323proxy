@@ -1,7 +1,7 @@
 Summary:	H.323 gatekeeper and proxy
 Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
 Name:		openh323proxy
-Version:	0.9.11
+Version:	0.9.12
 Release:	1
 Epoch:		1
 License:	MPL
@@ -14,10 +14,11 @@ Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-config_file_path.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
-BuildRequires:	openh323-devel
+BuildRequires:	openh323-devel >= 1.10.0
 BuildRequires:	openssl-devel
 Prereq:		/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%requires_eq	openh323
 
 %description 
 H.323 is widly used internet teleconferencing protocol. Openh323proxy
