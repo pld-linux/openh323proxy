@@ -23,7 +23,7 @@ Requires(post,preun):	/sbin/chkconfig
 %requires_eq	openh323
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 H.323 is widely used Internet teleconferencing protocol. Openh323proxy
 acts as H.323 gatekeeper and proxy. A H.323 gatekeeper controls all
 H.323 clients (endpoints like MS Netmeeting) in his zone. Its most
