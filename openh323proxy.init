@@ -31,7 +31,7 @@ cd /
 # Check that openh323proxy.ini exists
 [ -f /etc/openh323proxy.ini ] || exit 0
 
-
+RETVAL=0
 case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/openh323proxy ]; then
@@ -41,7 +41,6 @@ case "$1" in
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/openh323proxy
 	else
 		msg_already_running "OpenH323 gatekeeper/proxy"
-		exit 1
 	fi
 	;;
   stop)
@@ -51,20 +50,20 @@ case "$1" in
 		rm -f /var/lock/subsys/openh323proxy >/dev/null 2>&1
 	else
 		msg_not_running "OpenH323 gatekeeper/proxy"
-		exit 1
 	fi
 	;;
   status)
 	status opengate_proxy
 	exit $?
 	;;
-  restart|reload)
+  restart|force-reload)
 	$0 stop
 	$0 start
+	exit $?
 	;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|status}"
-	exit 1
+	msg_usage "$0 {start|stop|restart|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
