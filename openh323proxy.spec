@@ -1,11 +1,12 @@
 Summary:	H.323 gatekeeper and proxy
 Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
 Name:		openh323proxy
-Version:	0.9a3_m09
-Release:	2
+Version:	0.9.11
+Release:	1
+Epoch:		1
 License:	MPL
 Group:		Applications/Communications
-Source0:	http://download.sourceforge.net/%{name}/%{name}_%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/openh323proxy/%{name}-%{version}.tar.gz
 Source1:	%{name}.ini
 Source2:	%{name}.init
 Source3:	%{name}.sysconfig
@@ -13,8 +14,8 @@ Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-config_file_path.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	openh323-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Prereq:		/sbin/chkconfig
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
 H.323 is widly used internet teleconferencing protocol. Openh323proxy
@@ -43,7 +44,7 @@ PWLIBDIR=%{_prefix}; export PWLIBDIR
 OPENH323DIR=%{_prefix}; export OPENH323DIR
 OPENGATEDIR=`pwd`; export OPENH323DIR
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \
-	OPTCCFLAGS="%{!?debug:$RPM_OPT_FLAGS}"
+	OPTCCFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -51,8 +52,8 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},/etc/{/rc.d/init.d,/sysconfig}}
 
 install obj_*/opengate_proxy $RPM_BUILD_ROOT%{_sbindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/openh323proxy
-install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/openh323proxy
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/openh323proxy
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/openh323proxy
 
 %clean
 rm -rf $RPM_BUILD_ROOT
