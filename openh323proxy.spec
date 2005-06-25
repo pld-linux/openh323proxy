@@ -14,8 +14,10 @@ Source3:	%{name}.sysconfig
 Patch0:		%{name}-mak_files.patch
 Patch1:		%{name}-config_file_path.patch
 Patch2:		%{name}-c++.patch
+Patch3:		%{name}-pwlib.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
+BuildRequires:	pwlib-devel >= 1.7
 BuildRequires:	openh323-devel >= 1.12.0
 BuildRequires:	openssl-devel >= 0.9.7d
 PreReq:		rc-scripts
@@ -45,6 +47,7 @@ proxy pakiet ten umo¿liwia po³±czenia H.323 pomiêdzy sieci± wewnêtrzn±
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} %{?debug:debugshared}%{!?debug:optshared} \

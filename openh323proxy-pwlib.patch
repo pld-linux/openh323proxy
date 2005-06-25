@@ -1,0 +1,11 @@
+--- openh323proxy/EndpointTabl.cxx.orig	2002-11-28 11:44:53.000000000 +0100
++++ openh323proxy/EndpointTabl.cxx	2005-06-22 12:19:58.000000000 +0200
+@@ -581,7 +581,7 @@
+ {
+     // NOTE: The assumption is that we only ever have a maximum of one timeout per id
+     // existing at any one time.
+-    PAssert(obj.IsDescendant(TimeToLiveEntry::Class()), PInvalidCast);
++    PAssert(PIsDescendant(&obj, TimeToLiveEntry), PInvalidCast);
+     const TimeToLiveEntry & other = (const TimeToLiveEntry &)obj;
+     // Compare using endpoint ids....
+     return Id.Compare( other.Id );
