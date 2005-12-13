@@ -17,11 +17,11 @@ Patch2:		%{name}-c++.patch
 Patch3:		%{name}-pwlib.patch
 URL:		http://openh323proxy.sourceforge.net/
 BuildRequires:	expat-devel
-BuildRequires:	pwlib-devel >= 1.7
 BuildRequires:	openh323-devel >= 1.12.0
 BuildRequires:	openssl-devel >= 0.9.7d
-PreReq:		rc-scripts
+BuildRequires:	pwlib-devel >= 1.7
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 %requires_eq	openh323
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -85,6 +85,6 @@ fi
 %defattr(644,root,root,755)
 %doc *.txt
 %attr(755,root,root) %{_sbindir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/openh323proxy.ini
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/openh323proxy.ini
 %attr(754,root,root) /etc/rc.d/init.d/openh323proxy
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/openh323proxy
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/openh323proxy
