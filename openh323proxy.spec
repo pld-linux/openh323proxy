@@ -1,5 +1,5 @@
 Summary:	H.323 gatekeeper and proxy
-Summary(pl):	Gatekeeper i proxy dla protoko³u H.323
+Summary(pl.UTF-8):   Gatekeeper i proxy dla protokoÅ‚u H.323
 Name:		openh323proxy
 Version:	0.9.13
 Release:	2
@@ -33,13 +33,13 @@ important function is address translation between symbolic alias
 addresses and IP addresses. This way you can call "jan" instead of
 knowing which IP address he currently works on.
 
-%description -l pl
-H.323 to popularny internetowy protokó³ telekonferencyjny, u¿ywany
-miêdzy innymi przez program NetMeeting. Openh323proxy s³u¿y jako
-gatekeeper oraz Proxy dla tego protoko³u. Gatekeeper obs³uguje
-wszystkich klientów H.323 w swoim zasiêgu. Jego najwa¿niejsz± funkcj±
-jest t³umaczenie pomiêdzy nazwami symbolicznymi i adresami IP. Jako
-proxy pakiet ten umo¿liwia po³±czenia H.323 pomiêdzy sieci± wewnêtrzn±
+%description -l pl.UTF-8
+H.323 to popularny internetowy protokÃ³Å‚ telekonferencyjny, uÅ¼ywany
+miÄ™dzy innymi przez program NetMeeting. Openh323proxy sÅ‚uÅ¼y jako
+gatekeeper oraz Proxy dla tego protokoÅ‚u. Gatekeeper obsÅ‚uguje
+wszystkich klientÃ³w H.323 w swoim zasiÄ™gu. Jego najwaÅ¼niejszÄ… funkcjÄ…
+jest tÅ‚umaczenie pomiÄ™dzy nazwami symbolicznymi i adresami IP. Jako
+proxy pakiet ten umoÅ¼liwia poÅ‚Ä…czenia H.323 pomiÄ™dzy sieciÄ… wewnÄ™trznÄ…
 (za firewallem lub NAT), a Internetem.
 
 %prep
