@@ -1,5 +1,5 @@
 Summary:	H.323 gatekeeper and proxy
-Summary(pl.UTF-8):   Gatekeeper i proxy dla protokołu H.323
+Summary(pl.UTF-8):	Gatekeeper i proxy dla protokołu H.323
 Name:		openh323proxy
 Version:	0.9.13
 Release:	2
